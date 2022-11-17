@@ -10,39 +10,42 @@ let persona = {
         nombre: "Luis",
         apellido: "Pérez",
         edad: 61
-    },
-
-    setName(name){
-        this.nombre = name
     }
 
 } 
 
 // Llamadas a las propiedades: Notación de punto y corchetes / creación de nuevas propiedades
 
+console.log(persona["padre persona"].apellido)
 
+persona.mascotas = 2
+persona.nombre = "Luis"
+
+console.log(persona.nombre)
 
 // Funciones propias de objetos
     // for in
-    for (const key in persona) {
-        console.log(key)
+    for(propiedad in persona){
+        console.log(propiedad)
     }
 
+    
     // if(in)
-    if(["padre persona"] in persona){
-        console.log("Hola")
+    if(["nombre"] in persona){
+        console.log("Está dentro")
     } else {
-        console.log("No")
+        console.log("No está dentro")
     }
     
     // Object.freeze
     Object.freeze(persona)
-    console.log(persona.apellido = "hola")
+    persona.apellido = "hola"
+    console.log(persona)
 
     // object.hasOwnProperty("")
     console.log(persona.hasOwnProperty("apellido"))
 
-    // Object.key / Object.values
+    // Object.keys / Object.values
     console.log(Object.keys(persona))
     console.log(Object.values(persona))
 
@@ -60,15 +63,20 @@ let alumno = {
         return this.nombre
     },
 
-    setName(nuevoNombre){
-        this.nombre = nuevoNombre
+    getSaludo(){
+        return `Hola ${this.nombre}`
+    },
+
+    setNombre(nombre){
+        this.nombre = nombre
     }
 }
 
-alumno.setName("Miguel")
-
 console.log(alumno.getName())
+console.log(alumno.getSaludo())
 
+alumno.setNombre("Pepe")
+console.log(alumno.getSaludo())
 
 // 1. Dado un objeto haz un método que salude por nombre y apellido
 let niño = {
